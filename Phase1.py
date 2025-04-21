@@ -19,7 +19,7 @@ def initialize_database(schemas):
     cur = con.cursor()
 
     try:  
-        #Close all current store Database connections so that we can drop it
+        #Close all current Database connections so that we can drop it
         cur.execute(
                     f"""SELECT pg_terminate_backend(pg_stat_activity.pid)
                         FROM pg_stat_activity
