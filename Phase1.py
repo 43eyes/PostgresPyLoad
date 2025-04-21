@@ -10,6 +10,7 @@ from psycopg2.extras import execute_values
 DB_NAME = "store"
 DB_USER = "postgres"
 DB_PASS = "admin"
+
 def initialize_database(schemas):
     """nuke the old DB if it exists and create a fresh one with schemas present"""
 
