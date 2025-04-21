@@ -56,8 +56,8 @@ def csv_to_list_of_dicts(csv_filepath):
         df = pd.read_csv(csv_filepath,                 
                          quotechar='"',         # deal with quoted text
                          skipinitialspace=True, # ignore spaces after commas
-                         escapechar='\\',       # handle escape chars
-                         )
+                         escapechar='\\')       # handle escape chars
+                         
         
         return df.to_dict('records')
     except FileNotFoundError:
