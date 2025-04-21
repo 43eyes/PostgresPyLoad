@@ -12,8 +12,8 @@ This assumes there is already a PostgresSQL server running on localhost on the d
 Phase1 must be successfully run at least once before Phase2 will work.
 
 # Input
-- ```input/INFORMATION_SCHEMA.csv```  —  Describes the database tables, their schema, their fields, and the data types of those fields.
-- ```input/<TABLE_NAME>.csv describes```  —  the data of the respective table to load. The name of the file must match the TABLE_NAME in INFORMATION_SCHEMA.csv, and the headers of this file must match the fields described in INFORMATION_SCHEMA.csv.
+- ```input/INFORMATION_SCHEMA.csv```‎ —‎ Describes the database tables, their schema, their fields, and the data types of those fields.
+- ```input/<TABLE_NAME>.csv describes```‎ —‎ The data of the respective table to load. The name of the file must match the TABLE_NAME in INFORMATION_SCHEMA.csv, and the headers of this file must match the fields described in INFORMATION_SCHEMA.csv.
 
 Note: If two or more fields of the same table are described under two or more different schemas in INFORMATION_SCHEMA.csv, for example:
 
