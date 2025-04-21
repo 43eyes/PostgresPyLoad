@@ -182,7 +182,7 @@ def main():
 
                 if table_csv == []:
                     print(f"⚠ {table_name}.csv is not present in the input folder. There is no data to load.")
-                    print("--------------------------------------------------------------")
+                    print("\n--------------------------------------------------------------\n")
                     continue
                 
                 table_csv = table_csv[0]
@@ -199,7 +199,7 @@ def main():
 
                 validate_insertion(filtered_data, conn, table_name, table_schema)
                 
-                print('--------------------------------------------------------------')            
+                print('\n--------------------------------------------------------------\n')            
        
             print()            
 
