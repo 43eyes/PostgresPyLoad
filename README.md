@@ -2,9 +2,8 @@
 Phase1 takes a CSV file describing the structure of a relational database, and creates a postgres database based on it and loads data into it. Then Phase2 does financial analysis on the inserted data.
 
 # Python dependencies (Tested on Python 3.11.1)
-- psycopg2
-- glob
-- pandas
+- psycopg2: ```pip install psycopg2```
+- pandas: ```pip install pandas```
 
 # Instructions
 This assumes there is already a PostgresSQL server running on localhost on the default port. The server just needs to be running, completely new out of the box. The scripts take care of the rest. There are database credential variables at the top of both ```Phase1.py``` and ```Phase2.py```, and they are defaulted to ```username=postgres``` and ```password=admin```. 
