@@ -6,7 +6,7 @@ Phase1 takes a CSV file describing the structure of a relational database, and c
 - pandas: ```pip install pandas```
 
 # Instructions
-This assumes there is already a PostgresSQL server running on localhost on the default port. The server just needs to be running, completely new out of the box. The scripts take care of the rest. There are database credential variables at the top of both ```Phase1.py``` and ```Phase2.py```, and they are defaulted to ```username=postgres``` and ```password=admin```. 
+These python scripts assume there is already a PostgresSQL server running on localhost on the default port. The server just needs to be running, completely new out of the box. The scripts take care of the rest. There are database credential variables at the top of both ```Phase1.py``` and ```Phase2.py```, and they are defaulted to ```username=postgres``` and ```password=admin```. 
 
 Phase1 must be successfully run at least once before Phase2 will work.
 
