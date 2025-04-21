@@ -115,7 +115,7 @@ def main():
         print("Successfully connected to the database.")
 
         # --- Question 1: Overdrawn Checking Accounts ---
-        print("\n——— Overdrawn Checking Accounts ———")
+        print("\n—————————— Overdrawn Checking Accounts ———————————")
         overdrawn_results = run_query(conn, SQL_OVERDRAWN_CHECKING)
         if overdrawn_results:
             print(f"{'First Name':<15} {'Last Name':<15} {'Overdrawn Balance'}")
@@ -126,7 +126,7 @@ def main():
             print("No overdrawn checking accounts found.")
 
         # --- Question 2: Overpaid Loans ---
-        print("\n——— Overpaid Loans ———")
+        print("\n———————————————— Overpaid Loans ——————————————————")
         overpaid_results = run_query(conn, SQL_OVERPAID_LOANS)
         if overpaid_results:
             print(f"{'First Name':<15} {'Last Name':<15} {'Amount Overpaid'}")
@@ -137,7 +137,7 @@ def main():
             print("No overpaid loans found.")
 
         # --- Question 3: Total Asset Size ---
-        print("\n——— Total Institution Asset Size (Outstanding Loans) ———")
+        print("\n—— Total Institution Asset Size (Outstanding Loans) ——")
         asset_results = run_query(conn, SQL_TOTAL_ASSETS)
         if asset_results and asset_results[0][0] is not None:
             total_assets = asset_results[0][0]
