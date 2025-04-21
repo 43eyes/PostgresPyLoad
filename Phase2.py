@@ -137,7 +137,7 @@ def main():
             print("No overpaid loans found.")
 
         # --- Question 3: Total Asset Size ---
-        print("\n—— Total Institution Asset Size (Outstanding Loans) ——")
+        print("\nTotal Institution Asset Size (Outstanding Loans):\n")
         asset_results = run_query(conn, SQL_TOTAL_ASSETS)
         if asset_results and asset_results[0][0] is not None:
             total_assets = asset_results[0][0]
