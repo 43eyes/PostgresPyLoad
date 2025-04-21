@@ -25,4 +25,4 @@ dif,          CUSTOM_FIELDS, 1,                CUSTOM_DATE,    DATE
 dif,          CUSTOM_FIELDS, 3,                CUSTOM_NUMERIC, "NUMERIC(38,4)"
 ```
 
-the program should handle this, just make sure that the single CSV file for the table contains all of the fields described in INFORMATION_SCHEMA.csv. However, trying to load a different number of records to the two tables of different schemas will not work. I do not have control over the format of the input files for this project. If I were to do it, I would have separate files for each schema/table pair, instead of just table.
+the program should handle this, just make sure that the single CSV file for the table contains all of the fields described in INFORMATION_SCHEMA.csv. However, trying to load a different number of records to the two tables of different schemas will not work. I do not have control over the format of the input files for this project. If I were to do it, I would have separate files for each unique schema/table pair, instead of just per table name.
