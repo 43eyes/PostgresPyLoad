@@ -102,6 +102,32 @@ def insert_list_of_dicts(conn, table_name, data, schema=None):
     conn.commit()
     print(f"Data from CSV file has been loaded into {schema}.{table_name}")
 
+def validate_insertion(csv_data, conn, table_name, schema=None):
+    """Validates that all records from the CSV were inserted into the database table"""
+    
+    # Get count of records in the original CSV data
+    csv_record_count = len(csv_data)
+    
+    # Build the query to count records in the database table
+    if schema:
+        fully_qualified_table = f'{schema}.{table_name}'
+    else:
+        fully_qualified_table = f'{table_name}'
+    
+    count_query = f"SELECT COUNT(*) FROM {fully_qualified_table}"
+    
+    # Execute the query
+    with conn.cursor() as cursor:
+        cursor.execute(count_query)
+        db_record_count = cursor.fetchone()[0]
+    
+    # Compare counts
+    if csv_record_count == db_record_count:
+        print(f"✓ Validation successful: All {csv_record_count} records inserted into {fully_qualified_table}")
+        return True
+    else:
+        print(f"⚠ Validation failed: {csv_record_count} records in CSV but {db_record_count} in database table {fully_qualified_table}")
+        return False
 def main():
     """Main function. Create the tables and load the data."""
 
@@ -163,6 +189,9 @@ def main():
 
                 # load data into newely created schema-table pair into the database itself
                 insert_list_of_dicts(conn, table_name, filtered_data, table_schema)
+
+                validate_insertion(filtered_data, conn, table_name, table_schema)
+                
                 print('--------------------------------------------------------------')            
        
             print()            
