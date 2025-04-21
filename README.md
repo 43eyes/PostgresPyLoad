@@ -12,5 +12,5 @@ This assumes there is already a postgresSQL server running on loacalhost on the 
 Phase1 must be successfully ran at least once before Phase2 will work.
 
 # Input
-- input/INFORMATION_SCHEMA.csv described the database tables, their schema, their fields, and the data types of those fields.
+- input/INFORMATION_SCHEMA.csv describes the database tables, their schema, their fields, and the data types of those fields.
 - input/<TABLE_NAME>.csv describes the data of the respective table to load. The headers of these files must match the fields described in INFORMATION_SCHEMA.csv
