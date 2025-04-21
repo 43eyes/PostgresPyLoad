@@ -19,10 +19,10 @@ Note: If two or more fields of the same table are described under two or more di
 
 ```
 TABLE_SCHEMA, TABLE_NAME,    ORDINAL_POSITION, COLUMN_NAME,    DATA_TYPE
-dbo,          CUSTOM_FIELDS, 2,                CUSTOM_TEXT,    VARCHAR
-dbo,          CUSTOM_FIELDS, 0,                CUSTOM_GUID,    VARCHAR
-dif,          CUSTOM_FIELDS, 1,                CUSTOM_DATE,    DATE
-dif,          CUSTOM_FIELDS, 3,                CUSTOM_NUMERIC, "NUMERIC(38,4)"
+foo,          CUSTOM_FIELDS, 0,                CUSTOM_GUID,    VARCHAR
+foo,          CUSTOM_FIELDS, 1,                CUSTOM_DATE,    DATE
+bar,          CUSTOM_FIELDS, 2,                CUSTOM_TEXT,    VARCHAR
+bar,          CUSTOM_FIELDS, 3,                CUSTOM_NUMERIC, "NUMERIC(38,4)"
 ```
 
 The program handles this example of tables defined across multiple schemas, but uses the same CSV file for all schema versions of a table. It correctly filters columns for each schema version and loads the same records into each schema version from the fields that table schema supports. 
