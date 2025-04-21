@@ -1,7 +1,7 @@
 # PostgresPyLoad
 Phase1 takes a CSV file describing the structure of a relational database, and creates a postgres database based on it and loads data into it. Then Phase2 does financial analysis on the inserted data.
 
-# Python dependencies
+# Python dependencies (Tested on Python 3.11.1)
 - psycopg2
 - glob
 - pandas
