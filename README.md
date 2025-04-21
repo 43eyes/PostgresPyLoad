@@ -13,4 +13,4 @@ Phase1 must be successfully ran at least once before Phase2 will work.
 
 # Input
 - input/INFORMATION_SCHEMA.csv describes the database tables, their schema, their fields, and the data types of those fields.
-- input/<TABLE_NAME>.csv describes the data of the respective table to load. The headers of these files must match the fields described in INFORMATION_SCHEMA.csv
+- input/<TABLE_NAME>.csv describes the data of the respective table to load. The name of the file must match the TABLE_NAME in INFORMATION_SCHEMA.csv, and the headers of these files must match the fields described in INFORMATION_SCHEMA.csv
