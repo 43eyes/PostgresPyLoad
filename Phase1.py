@@ -128,7 +128,6 @@ def validate_insertion(csv_data, conn, table_name, schema=None):
     else:
         print(f"⚠ Validation failed: {csv_record_count} records in CSV but {db_record_count} in database table {fully_qualified_table}")
         return False
-        
 def main():
     """Main function. Create the tables and load the data."""
 
@@ -183,7 +182,7 @@ def main():
 
                 if table_csv == []:
                     print(f"⚠ {table_name}.csv is not present in the input folder. There is no data to load.")
-                    print("\n--------------------------------------------------------------\n")
+                    print("—" * 100)
                     continue
                 
                 table_csv = table_csv[0]
@@ -200,7 +199,7 @@ def main():
 
                 validate_insertion(filtered_data, conn, table_name, table_schema)
                 
-                print('\n--------------------------------------------------------------\n')            
+                print("—" * 100)          
        
             print()            
 
