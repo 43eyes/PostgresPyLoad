@@ -128,6 +128,7 @@ def validate_insertion(csv_data, conn, table_name, schema=None):
     else:
         print(f"⚠ Validation failed: {csv_record_count} records in CSV but {db_record_count} in database table {fully_qualified_table}")
         return False
+        
 def main():
     """Main function. Create the tables and load the data."""
 
