@@ -128,7 +128,6 @@ def validate_insertion(csv_data, conn, table_name, schema=None):
     else:
         print(f"⚠ Validation failed: {csv_record_count} records in CSV but {db_record_count} in database table {fully_qualified_table}")
         return False
-        
 def main():
     """Main function. Create the tables and load the data."""
 
@@ -147,7 +146,7 @@ def main():
         unique_table_schemas = {record['TABLE_SCHEMA'] for record in schema}
 
         # get unique combos of schema + table
-        unique_tables = {(record['TABLE_SCHEMA'], record['TABLE_NAME']) for record in schema}
+        unique_tables = sorted({(record['TABLE_SCHEMA'], record['TABLE_NAME']) for record in schema})
         
         # setup postgres server
         conn, cur = initialize_database(unique_table_schemas)
@@ -179,7 +178,14 @@ def main():
 
                 
                 #Load CSV data for the table-schema just created into a dictionary
-                table_csv = [ file for file in csv_files if table_name in file.split("\\")[-1] ][0]
+                table_csv = [ file for file in csv_files if table_name in file.split("\\")[-1] ]
+
+                if table_csv == []:
+                    print(f"⚠ {table_name}.csv is not present in the input folder. There is no data to load.")
+                    print("--------------------------------------------------------------")
+                    continue
+                
+                table_csv = table_csv[0]
                 data_to_load = csv_to_list_of_dicts(table_csv)
                 
                 # Find the columns to load for the schema-table pair
