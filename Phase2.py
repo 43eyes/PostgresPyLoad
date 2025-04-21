@@ -119,7 +119,7 @@ def main():
         overdrawn_results = run_query(conn, SQL_OVERDRAWN_CHECKING)
         if overdrawn_results:
             print(f"{'First Name':<15} {'Last Name':<15} {'Overdrawn Balance'}")
-            print("—" * 45)
+            print("—" * 50)
             for first, last, balance in overdrawn_results:
                 print(f"{first:<15} {last:<15} {format_currency(balance)}")
         else:
@@ -130,7 +130,7 @@ def main():
         overpaid_results = run_query(conn, SQL_OVERPAID_LOANS)
         if overpaid_results:
             print(f"{'First Name':<15} {'Last Name':<15} {'Amount Overpaid'}")
-            print("—" * 45)
+            print("—" * 50)
             for first, last, amount in overpaid_results:
                  print(f"{first:<15} {last:<15} {format_currency(amount)}")
         else:
