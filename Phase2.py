@@ -57,23 +57,23 @@ ORDER BY
     overpaid_amount DESC, M.LAST_NAME, M.FIRST_NAME;
 """
 
-# total assets = sum of all positive checking balances
+# total assets = sum of all outstanding loan balances
 SQL_TOTAL_ASSETS = """
-WITH CheckingBalances AS (
+WITH LoanBalances AS (
     SELECT
-        C.ACCOUNT_GUID,
-        (C.STARTING_BALANCE + COALESCE(SUM(T.TRANSACTION_AMOUNT), 0)) AS current_balance
+        L.ACCOUNT_GUID,
+        (L.STARTING_DEBT + COALESCE(SUM(T.TRANSACTION_AMOUNT), 0)) AS current_balance
     FROM
-        dbo.CHECKING C
+        dbo.LOANS L
     LEFT JOIN
-        dbo.TRANSACTIONS T ON C.ACCOUNT_GUID = T.ACCOUNT_GUID
+        dbo.TRANSACTIONS T ON L.ACCOUNT_GUID = T.ACCOUNT_GUID
     GROUP BY
-        C.ACCOUNT_GUID, C.STARTING_BALANCE
+        L.ACCOUNT_GUID, L.STARTING_DEBT
 )
 SELECT
     SUM(current_balance) AS total_institution_assets
 FROM
-    CheckingBalances
+    LoanBalances
 WHERE
     current_balance > 0;
 """
@@ -137,7 +137,7 @@ def main():
             print("No overpaid loans found.")
 
         # --- Question 3: Total Asset Size ---
-        print("\n--- Total Institution Asset Size (Checking Accounts) ---")
+        print("\n--- Total Institution Asset Size (Outstanding Loans) ---")
         asset_results = run_query(conn, SQL_TOTAL_ASSETS)
         if asset_results and asset_results[0][0] is not None:
             total_assets = asset_results[0][0]
